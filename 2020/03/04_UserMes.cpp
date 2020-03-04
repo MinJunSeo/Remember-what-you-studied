@@ -1,4 +1,4 @@
-// Visual Studio 2019¿¡¼­ ÀÛ¼ºµÈ ÄÚµåÀÔ´Ï´Ù.
+// Visual Studio 2019ì—ì„œ ìž‘ì„±ëœ ì½”ë“œìž…ë‹ˆë‹¤.
 
 #include <Windows.h>
 
@@ -45,7 +45,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
 	HDC hdc;
 	PAINTSTRUCT ps;
-	LPCTSTR Mes = TEXT("¸¶¿ì½º ¿ÞÂÊ ¹öÆ°À» ´©¸£¸é SoriMessage ¸Þ½ÃÁö¸¦ Àü´ÞÇÕ´Ï´Ù.");
+	LPCTSTR Mes = TEXT("ë§ˆìš°ìŠ¤ ì™¼ìª½ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ SoriMessage ë©”ì‹œì§€ë¥¼ ì „ë‹¬í•©ë‹ˆë‹¤.");
 	int i;
 	RECT rt;
 
