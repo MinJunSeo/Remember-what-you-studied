@@ -1,4 +1,4 @@
-// Visual Studio 2019¿¡¼­ ÀÛ¼ºµÈ ÄÚµåÀÔ´Ï´Ù.
+// Visual Studio 2019ì—ì„œ ì‘ì„±ëœ ì½”ë“œì…ë‹ˆë‹¤.
 
 #include <Windows.h>
 
@@ -46,7 +46,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	HDC hdc;
 	PAINTSTRUCT ps;
 	HWND hWndSori;
-	LPCTSTR Mes = TEXT("UserMes ÇÁ·Î±×·¥¿¡°Ô ¸Ş½ÃÁö¸¦ º¸³À´Ï´Ù.");
+	LPCTSTR Mes = TEXT("UserMes í”„ë¡œê·¸ë¨ì—ê²Œ ë©”ì‹œì§€ë¥¼ ë³´ëƒ…ë‹ˆë‹¤.");
 
 	switch (iMessage)
 	{
@@ -57,8 +57,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	case WM_LBUTTONDOWN:
 		hWndSori = FindWindow(NULL, TEXT("UserMes"));
 		if (!hWndSori)
-			MessageBox(hWnd, TEXT("UserMes ÇÁ·Î±×·¥ÀÌ ½ÇÇàµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù."),
-				TEXT("Å½»ö ½ÇÆĞ"), MB_OK);
+			MessageBox(hWnd, TEXT("UserMes í”„ë¡œê·¸ë¨ì´ ì‹¤í–‰ë˜ì–´ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤."),
+				TEXT("íƒìƒ‰ ì‹¤íŒ¨"), MB_OK);
 		else
 			SendMessage(hWndSori, nSoriMessage, 0, 0);
 		return 0;
