@@ -81,3 +81,8 @@ ptMaxTrackSize는 경계선을 드래그하여 지정할 수 있는 윈도우의
 # Screenshot
   
 ![캡처](https://user-images.githubusercontent.com/51042546/75956218-c1886d80-5efa-11ea-849b-8cf0f1f8c466.JPG)
+  
+# Reference
+  
+「Windows API 정복 1권」 - 김상형 저  
+MSDN(MicroSoft Developer Network)  
