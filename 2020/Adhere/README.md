@@ -20,11 +20,11 @@ Windows API를 공부하면서 주어지는 과제를 해결하고자 노력하�
   
 ## Source Example
   
-  #include <stdio.h>
-  
-  int main()
-  {
+'''c
+#include <stdio.h>
+int main()
+{
     return 0;
-  }
+}
   
 # Screenshot
