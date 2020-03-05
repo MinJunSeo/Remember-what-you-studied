@@ -1,4 +1,4 @@
-// Visual Studio 2019¿¡¼­ ÀÛ¼ºµÈ ÄÚµåÀÔ´Ï´Ù.
+// Visual Studio 2019ì—ì„œ ìž‘ì„±ëœ ì½”ë“œìž…ë‹ˆë‹¤.
 
 #include <Windows.h>
 
@@ -15,7 +15,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	WNDCLASS WndClass;
 	g_hInst = hInstance;
 
-	// ¸ÞÀÎ À©µµ¿ì Å¬·¡½º µî·Ï
+	// ë©”ì¸ ìœˆë„ìš° í´ëž˜ìŠ¤ ë“±ë¡
 	WndClass.cbClsExtra = 0;
 	WndClass.cbWndExtra = 0;
 	WndClass.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
@@ -28,11 +28,11 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	WndClass.style = CS_HREDRAW | CS_VREDRAW;
 	RegisterClass(&WndClass);
 
-	// Â÷ÀÏµå À©µµ¿ì Å¬·¡½º µî·Ï
+	// ì°¨ì¼ë“œ ìœˆë„ìš° í´ëž˜ìŠ¤ ë“±ë¡
 	WndClass.lpfnWndProc = ChildProc;
 	WndClass.lpszClassName = TEXT("Ad");
-	WndClass.hbrBackground = (HBRUSH)GetStockObject(GRAY_BRUSH); // È¸»ö ¹è°æ»öÀ» ÁØ´Ù.
-	WndClass.style = CS_VREDRAW | CS_NOCLOSE; // ´Ý±â ¹öÆ°(X) »ç¿ë ºÒ°¡
+	WndClass.hbrBackground = (HBRUSH)GetStockObject(GRAY_BRUSH); // íšŒìƒ‰ ë°°ê²½ìƒ‰ì„ ì¤€ë‹¤.
+	WndClass.style = CS_VREDRAW | CS_NOCLOSE; // ë‹«ê¸° ë²„íŠ¼(X) ì‚¬ìš© ë¶ˆê°€
 	RegisterClass(&WndClass);
 
 	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
@@ -53,10 +53,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	switch (iMessage)
 	{
 	case WM_CREATE:
-		// Â÷ÀÏµå À©µµ¿ì »ý¼º
+		// ì°¨ì¼ë“œ ìœˆë„ìš° ìƒì„±
 		CreateWindow(TEXT("Ad"), TEXT("Tool"),
 			WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_VISIBLE,
-			// ÆË¾÷ À©µµ¿ì·Î | Å¸ÀÌÆ² ¹Ù | ½Ã½ºÅÛ ¸Þ´º | Å©±â º¯°æ °¡´ÉÇÑ µÎ²¨¿î °æ°è¼± | ¹Ù·Î º¸ÀÌ±â
+			// íŒì—… ìœˆë„ìš°ë¡œ | íƒ€ì´í‹€ ë°” | ì‹œìŠ¤í…œ ë©”ë‰´ | í¬ê¸° ë³€ê²½ ê°€ëŠ¥í•œ ë‘êº¼ìš´ ê²½ê³„ì„  | ë°”ë¡œ ë³´ì´ê¸°
 			200, 250, 200, 200, hWnd, (HMENU)0, g_hInst, NULL);
 		hWndMain = hWnd;
 		return 0;
@@ -80,7 +80,7 @@ LRESULT CALLBACK ChildProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lPara
 	{
 	case WM_GETMINMAXINFO:
 		pmmi = (LPMINMAXINFO)lParam;
-		// ÆË¾÷ À©µµ¿ìÀÇ ÆøÀº 200 ÇÈ¼¿·Î °íÁ¤ÇÑ´Ù.
+		// íŒì—… ìœˆë„ìš°ì˜ í­ì€ 200 í”½ì…€ë¡œ ê³ ì •í•œë‹¤.
 		pmmi->ptMaxPosition.x = 200;
 		pmmi->ptMaxSize.x = 200;
 		pmmi->ptMaxTrackSize.x = 200;
@@ -91,15 +91,15 @@ LRESULT CALLBACK ChildProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lPara
 		height = mainWndRect.bottom - mainWndRect.top;
 		wp = (LPWINDOWPOS)lParam;
 
-		// ÆË¾÷ À©µµ¿ìÀÇ ³ôÀÌ´Â (ºÎ¸ð À©µµ¿ì ³ôÀÌ / 4) < cy < ºÎ¸ð À©µµ¿ì ³ôÀÌ
+		// íŒì—… ìœˆë„ìš°ì˜ ë†’ì´ëŠ” (ë¶€ëª¨ ìœˆë„ìš° ë†’ì´ / 4) < cy < ë¶€ëª¨ ìœˆë„ìš° ë†’ì´
 		wp->cy = min(max(wp->cy, height / 4), height);
 
 		t = wp->x;
-		// ¸ÞÀÎ À©µµ¿ì ÀÛ¾÷¿µ¿ª x ÁÂÇ¥ - ÆË¾÷ À©µµ¿ìÀÇ x ÁÂÇ¥ÀÇ Àý´ñ°ªÀÌ 30 ÇÈ¼¿ ¹Ì¸¸
+		// ë©”ì¸ ìœˆë„ìš° ìž‘ì—…ì˜ì—­ x ì¢Œí‘œ - íŒì—… ìœˆë„ìš°ì˜ x ì¢Œí‘œì˜ ì ˆëŒ“ê°’ì´ 30 í”½ì…€ ë¯¸ë§Œ
 		if (abs(mainWndRect.left - t) < 30)
 			t = mainWndRect.left;
 		if (abs(mainWndRect.right - (t + (wp->cx))) < 30)
-			// ¸ÞÀÎ À©µµ¿ì ¿À¸¥ÂÊ ÀÛ¾÷¿µ¿ª x ÁÂÇ¥ - Çö ÆË¾÷ À©µµ¿ìÀÇ Æø(200 ÇÈ¼¿)
+			// ë©”ì¸ ìœˆë„ìš° ì˜¤ë¥¸ìª½ ìž‘ì—…ì˜ì—­ x ì¢Œí‘œ - í˜„ íŒì—… ìœˆë„ìš°ì˜ í­(200 í”½ì…€)
 			t = mainWndRect.right - (wp->cx);
 		wp->x = t;
 
