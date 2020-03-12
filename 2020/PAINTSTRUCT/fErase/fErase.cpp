@@ -1,4 +1,4 @@
-// Visual Studio 2019���� �ۼ��� �ڵ��Դϴ�.
+// Visual Studio 2019에서 작성된 코드입니다.
 
 #include <Windows.h>
 
