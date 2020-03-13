@@ -12,6 +12,12 @@
   
 GetDC를 호출하면 ReleaseDC를 호출하는 것과 같이 BeginPaint 함수를 호출하였다면 EndPaint를 반드시 호출해야 한다.  
   
+무효 영역을 유효화함으로써 다시 WM_PAINT 메시지가 보내지지 않도록 한다.  
+  
+다시 그려지는 영역에 캐럿이 있을 경우, 그리기를 시작하기 전에 숨겨 파괴되지 않도록 한다.  
+  
+WM_ERASEBKGND 메시지를 보내 윈도우의 배경을 백그라운드 브러시로 지울 수 있도록 하며, WM_NCPAINT 메시지도 보내 비작업 영역을 그리도록 한다.  
+  
 ## Parameters
   
 	HWND hWnd
