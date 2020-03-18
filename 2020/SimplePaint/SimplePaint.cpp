@@ -1,18 +1,18 @@
 // Visual Studio 2019 version 16.4.6
 
 #include <Windows.h>
+#include "resource.h"
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+// 옵션 대화상자 프로시저 원형
+BOOL CALLBACK OptionDlgProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
 HWND hWndMain;
-LPCTSTR lpszClass = TEXT("SimplePaint");
+LPCTSTR lpszClass = TEXT("SimplePaint version 2.0");
 
-enum { ID_RED = 101, ID_BLUE, ID_YELLOW, ID_BLACK }; // 색상 ID
-#define ID_THICK 200 // 펜 굵게하는 ID
-#define ID_REDRAW 201 // 화면 다시 그리는 ID
-
-// 각 기능들의 윈도우의 핸들
-HWND hRed, hBlue, hYellow, hBlack, hThick, hReDraw;
+// 옵션 대화상자에서도 사용해야 하기에 전역 변수로 변경
+int nWidth = 1;
+COLORREF dwColor = RGB(0, 0, 0); // 펜의 색을 결정할 변수. 초기색은 검정
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdParam, int nCmdShow)
 {
@@ -33,8 +33,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	WndClass.style = CS_HREDRAW | CS_VREDRAW;
 	RegisterClass(&WndClass);
 
-	hWnd = CreateWindow(lpszClass, lpszClass,
-		WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_CLIPSIBLINGS,
+	// 화면에 차일드가 없어져 WS_OVERLAPPEDWINDOW 속성으로만 생성
+	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, (HMENU)NULL, hInstance, NULL);
 	ShowWindow(hWnd, nCmdShow);
 
@@ -52,71 +52,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	HDC hdc;
 	PAINTSTRUCT ps;
 	static int x, y;
-	static int nWidth = 1;
 	static BOOL bNowDraw = FALSE;
-	static COLORREF dwColor = RGB(0, 0, 0); // 펜의 색을 결정할 변수. 초기색은 검정
 
 	switch (iMessage)
 	{
-	case WM_CREATE:
-		// 라디오버튼을 묶을 그룹박스 생성
-		CreateWindow(TEXT("button"), TEXT("색상"),
-			WS_CHILD | WS_VISIBLE | BS_GROUPBOX,
-			10, 10, 70, 150, hWnd, (HMENU)0, g_hInst, NULL);
-		hRed = CreateWindow(TEXT("button"), TEXT("빨강"),
-			WS_CHILD | WS_VISIBLE | BS_AUTORADIOBUTTON | WS_GROUP,
-			17, 27, 55, 30, hWnd, (HMENU)ID_RED, g_hInst, NULL);
-		hBlue = CreateWindow(TEXT("button"), TEXT("파랑"),
-			WS_CHILD | WS_VISIBLE | BS_AUTORADIOBUTTON,
-			17, 57, 55, 30, hWnd, (HMENU)ID_BLUE, g_hInst, NULL);
-		hYellow = CreateWindow(TEXT("button"), TEXT("노랑"),
-			WS_CHILD | WS_VISIBLE | BS_AUTORADIOBUTTON,
-			17, 87, 55, 30, hWnd, (HMENU)ID_YELLOW, g_hInst, NULL);
-		hBlack = CreateWindow(TEXT("button"), TEXT("검정"),
-			WS_CHILD | WS_VISIBLE | BS_AUTORADIOBUTTON,
-			17, 117, 55, 30, hWnd, (HMENU)ID_BLACK, g_hInst, NULL);
-		CheckRadioButton(hWnd, ID_RED, ID_BLACK, ID_BLACK);
-		hThick = CreateWindow(TEXT("button"), TEXT("굵게"),
-			WS_CHILD | WS_VISIBLE | BS_CHECKBOX | WS_BORDER,
-			10, 170, 55, 30, hWnd, (HMENU)ID_THICK, g_hInst, NULL);
-		hReDraw = CreateWindow(TEXT("button"), TEXT("다시 그리기"),
-			WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
-			10, 210, 100, 30, hWnd, (HMENU)ID_REDRAW, g_hInst, NULL);
-		return 0;
-
-	case WM_COMMAND:
+	case WM_KEYDOWN:
 		switch (LOWORD(wParam))
 		{
-		case ID_THICK:
-			if (SendMessage(hThick, BM_GETCHECK, 0, 0) == BST_UNCHECKED) // 체크되어 있지 않다면
-			{
-				SendMessage(hThick, BM_SETCHECK, BST_CHECKED, 0); // 체크된 상태로 변경한다.
-				nWidth = 5; // 굵기를 굵게 한다.
-			}
-			else
-			{
-				SendMessage(hThick, BM_SETCHECK, BST_UNCHECKED, 0);
-				nWidth = 1;
-			}
-			break;
-
-		case ID_RED:
-			dwColor = RGB(255, 0, 0);
-			break;
-
-		case ID_BLUE:
-			dwColor = RGB(0, 0, 255);
-			break;
-
-		case ID_YELLOW:
-			dwColor = RGB(255, 255, 0);
-			break;
-
-		case ID_BLACK:
-			dwColor = RGB(0, 0, 0);
-			break;
-
-		case ID_REDRAW:
+		case VK_SPACE: // 공백 키를 누를 경우
 			InvalidateRect(hWnd, NULL, TRUE);
 			break;
 		}
@@ -156,10 +99,68 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		bNowDraw = FALSE;
 		return 0;
 
+	// 오른쪽 마우스 버튼을 누를 경우 옵션 대화상자를 연다.
+	case WM_RBUTTONDOWN:
+		DialogBox(g_hInst, MAKEINTRESOURCE(IDD_DIALOG1), hWnd, OptionDlgProc);
+		return 0;
+
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
 	}
 
 	return (DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
+
+BOOL CALLBACK OptionDlgProc(HWND hDlg, UINT iMessage, WPARAM wParam, LPARAM lParam)
+{
+	switch (iMessage)
+	{
+	// 대화상자를 열 때 어떤 버튼이 체크되어야 하는지 검사 후 체크한다.
+	case WM_INITDIALOG:
+		if (nWidth == 1)
+			CheckDlgButton(hDlg, IDC_THICK, BST_UNCHECKED);
+		else
+			CheckDlgButton(hDlg, IDC_THICK, BST_CHECKED);
+
+		if (dwColor == RGB(0, 0, 0))
+			CheckDlgButton(hDlg, IDC_BLACK, BST_CHECKED);
+		else if (dwColor == RGB(255, 0, 0))
+			CheckDlgButton(hDlg, IDC_RED, BST_CHECKED);
+		else if (dwColor == RGB(255, 255, 0))
+			CheckDlgButton(hDlg, IDC_YELLOW, BST_CHECKED);
+		else
+			CheckDlgButton(hDlg, IDC_BLUE, BST_CHECKED);
+		return TRUE;
+
+	case WM_COMMAND:
+		switch (LOWORD(wParam))
+		{
+		case IDOK:
+			if (IsDlgButtonChecked(hDlg, IDC_THICK)) // 버튼이 체크되어 있는가?
+				nWidth = 5;
+			else
+				nWidth = 1;
+
+			// 라디오 버튼이기에 각 버튼을 모두 if로 검사할 필요가 없다.
+			if (IsDlgButtonChecked(hDlg, IDC_BLACK))
+				dwColor = RGB(0, 0, 0);
+			else if (IsDlgButtonChecked(hDlg, IDC_RED))
+				dwColor = RGB(255, 0, 0);
+			else if (IsDlgButtonChecked(hDlg, IDC_YELLOW))
+				dwColor = RGB(255, 255, 0);
+			else
+				dwColor = RGB(0, 0, 255);
+			
+			EndDialog(hDlg, IDOK);
+			return TRUE;
+
+		case IDCANCEL:
+			EndDialog(hDlg, IDCANCEL);
+			return TRUE;
+		}
+		break;
+	}
+	
+	return FALSE;
 }
