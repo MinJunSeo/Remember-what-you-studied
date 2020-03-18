@@ -75,6 +75,29 @@ If you click the repaint button, all lines will be erased.
 You can't draw at children window. (ex : button place)  
 If you uncover or adjust this window, all image will be erased.  
   
+## version 2.0
+  
+![캡처](https://user-images.githubusercontent.com/51042546/76929586-e8499980-6927-11ea-8964-4183c5d948cc.JPG)  
+You can pick the color and thick at the option dialog.  
+  
+	case WM_KEYDOWN:
+		switch (LOWORD(wParam))
+		{
+		case VK_SPACE:
+			InvalidateRect(hWnd, NULL, TRUE);
+			break;
+		}
+		return 0;
+  
+If you enter space key, all images will be erased.  
+  
+	// 마우스 오른쪽 버튼을 누르면 옵션 대화상자를 연다.
+	case WM_RBUTTONDOWN:
+		DialogBox(g_hInst, MAKEINTRESOURCE(IDD_DIALOG1), hWnd, OptionDlgProc);
+		return 0;
+  
+If you click the mouse right button, you can open the option dialog.  
+  
 # API Reference
   
 「Windows API 정복 1권」 - 과제의 힌트 제공
@@ -82,7 +105,12 @@ If you uncover or adjust this window, all image will be erased.
 # How to use?
   
 Download SimplePaint.exe file in this folder.  
+Download SimplePaint.sln and open it. Then, build and run that project.  
   
 # Screenshots
   
-![캡처](https://user-images.githubusercontent.com/51042546/76831199-38fabd00-686a-11ea-9829-0ecd987fa19c.JPG)
+![캡처](https://user-images.githubusercontent.com/51042546/76831199-38fabd00-686a-11ea-9829-0ecd987fa19c.JPG)  
+SamplePaint program's execution result with version 1.0  
+  
+![캡처](https://user-images.githubusercontent.com/51042546/76929349-4164fd80-6927-11ea-8ca1-cfdd357509d1.JPG)  
+SamplePaint program's execution result with version 2.0
