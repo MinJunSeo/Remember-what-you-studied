@@ -98,6 +98,13 @@ If you enter space key, all images will be erased.
   
 If you click the mouse right button, you can open the option dialog.  
   
+## version 3.0
+  
+![캡처](https://user-images.githubusercontent.com/51042546/77033324-3aeb8a00-69ea-11ea-86d0-dae84fda5c74.JPG)  
+From now on, this dialog box is modeless dialog box. So, you can draw during you open this dialog box.  
+This dialog box has 다시 그리기 button, so you push this button, will be erased all images.  
+If you pick the color or thick, that will be applied real time.
+  
 # API Reference
   
 「Windows API 정복 1권」 - 과제의 힌트 제공
@@ -113,4 +120,7 @@ Download SimplePaint.sln and open it. Then, build and run that project.
 SamplePaint program's execution result with version 1.0  
   
 ![캡처](https://user-images.githubusercontent.com/51042546/76929349-4164fd80-6927-11ea-8ca1-cfdd357509d1.JPG)  
-SamplePaint program's execution result with version 2.0
+SamplePaint program's execution result with version 2.0  
+  
+![캡처](https://user-images.githubusercontent.com/51042546/77033602-0a582000-69eb-11ea-9500-d5a01581228e.JPG)  
+SamplePaint program's execution result with version 3.0
