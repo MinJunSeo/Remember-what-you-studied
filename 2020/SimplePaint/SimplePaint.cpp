@@ -1,18 +1,19 @@
-// Visual Studio 2019 version 16.4.6
+ï»¿// Visual Studio 2019 version 16.4.6
 
 #include <Windows.h>
 #include "resource.h"
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
-// ¿É¼Ç ´ëÈ­»óÀÚ ÇÁ·Î½ÃÀú ¿øÇü
+// ì˜µì…˜ ëŒ€í™”ìƒì í”„ë¡œì‹œì € ì›í˜•
 BOOL CALLBACK OptionDlgProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
 HWND hWndMain;
-LPCTSTR lpszClass = TEXT("SimplePaint version 2.0");
+HWND hMDlg; // ì˜µì…˜ ëŒ€í™”ìƒì í•¸ë“¤
+LPCTSTR lpszClass = TEXT("SimplePaint version 3.0");
 
-// ¿É¼Ç ´ëÈ­»óÀÚ¿¡¼­µµ »ç¿ëÇØ¾ß ÇÏ±â¿¡ Àü¿ª º¯¼ö·Î º¯°æ
+// ì˜µì…˜ ëŒ€í™”ìƒìì—ì„œë„ ì‚¬ìš©í•´ì•¼ í•˜ê¸°ì— ì „ì—­ ë³€ìˆ˜ë¡œ ë³€ê²½
 int nWidth = 1;
-COLORREF dwColor = RGB(0, 0, 0); // ÆæÀÇ »öÀ» °áÁ¤ÇÒ º¯¼ö. ÃÊ±â»öÀº °ËÁ¤
+COLORREF dwColor = RGB(0, 0, 0); // íœì˜ ìƒ‰ì„ ê²°ì •í•  ë³€ìˆ˜. ì´ˆê¸°ìƒ‰ì€ ê²€ì •
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdParam, int nCmdShow)
 {
@@ -33,7 +34,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	WndClass.style = CS_HREDRAW | CS_VREDRAW;
 	RegisterClass(&WndClass);
 
-	// È­¸é¿¡ Â÷ÀÏµå°¡ ¾ø¾îÁ® WS_OVERLAPPEDWINDOW ¼Ó¼ºÀ¸·Î¸¸ »ı¼º
+	// í™”ë©´ì— ì°¨ì¼ë“œê°€ ì—†ì–´ì ¸ WS_OVERLAPPEDWINDOW ì†ì„±ìœ¼ë¡œë§Œ ìƒì„±
 	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, (HMENU)NULL, hInstance, NULL);
 	ShowWindow(hWnd, nCmdShow);
@@ -50,16 +51,20 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
 	HDC hdc;
-	PAINTSTRUCT ps;
 	static int x, y;
 	static BOOL bNowDraw = FALSE;
 
 	switch (iMessage)
 	{
+	case WM_CREATE:
+		// ì˜µì…˜ ëŒ€í™”ìƒì í•¸ë“¤ì—ì„œ ì‚¬ìš©í•˜ê¸° ìœ„í•´ í•´ë‹¹ ìœˆë„ìš° í•¸ë“¤ ì €ì¥
+		hWndMain = hWnd;
+		return 0;
+
 	case WM_KEYDOWN:
 		switch (LOWORD(wParam))
 		{
-		case VK_SPACE: // °ø¹é Å°¸¦ ´©¸¦ °æ¿ì
+		case VK_SPACE: // ê³µë°± í‚¤ë¥¼ ëˆ„ë¥¼ ê²½ìš°
 			InvalidateRect(hWnd, NULL, TRUE);
 			break;
 		}
@@ -75,14 +80,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	{
 		HPEN hPen, OldPen;
 
-		if(bNowDraw)
+		if (bNowDraw)
 		{
 			hdc = GetDC(hWnd);
-			// ÆæÀ» ³»°¡ ¼³Á¤ÇÑ ±½±â¿Í »ö±ò·Î ¸¸µç´Ù.
+			// íœì„ ë‚´ê°€ ì„¤ì •í•œ êµµê¸°ì™€ ìƒ‰ê¹”ë¡œ ë§Œë“ ë‹¤.
 			hPen = CreatePen(PS_SOLID, nWidth, dwColor);
 			OldPen = (HPEN)SelectObject(hdc, hPen);
 
-			// ¼±À» ±ß´Â´Ù.
+			// ì„ ì„ ê¸‹ëŠ”ë‹¤.
 			MoveToEx(hdc, x, y, NULL);
 			x = LOWORD(lParam);
 			y = HIWORD(lParam);
@@ -99,9 +104,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		bNowDraw = FALSE;
 		return 0;
 
-	// ¿À¸¥ÂÊ ¸¶¿ì½º ¹öÆ°À» ´©¸¦ °æ¿ì ¿É¼Ç ´ëÈ­»óÀÚ¸¦ ¿¬´Ù.
+		// ì˜¤ë¥¸ìª½ ë§ˆìš°ìŠ¤ ë²„íŠ¼ì„ ëˆ„ë¥¼ ê²½ìš° ì˜µì…˜ ëŒ€í™”ìƒìë¥¼ ì—°ë‹¤.
 	case WM_RBUTTONDOWN:
-		DialogBox(g_hInst, MAKEINTRESOURCE(IDD_DIALOG1), hWnd, OptionDlgProc);
+		if (!IsWindow(hMDlg)) // ëŒ€í™”ìƒìê°€ ì—´ë ¤ìˆì§€ ì•Šë‹¤ë©´
+		{
+			hMDlg = CreateDialog(g_hInst, MAKEINTRESOURCE(IDD_DIALOG1), hWnd, OptionDlgProc);
+			ShowWindow(hMDlg, SW_SHOW);
+		}
 		return 0;
 
 	case WM_DESTROY:
@@ -116,7 +125,7 @@ BOOL CALLBACK OptionDlgProc(HWND hDlg, UINT iMessage, WPARAM wParam, LPARAM lPar
 {
 	switch (iMessage)
 	{
-	// ´ëÈ­»óÀÚ¸¦ ¿­ ¶§ ¾î¶² ¹öÆ°ÀÌ Ã¼Å©µÇ¾î¾ß ÇÏ´ÂÁö °Ë»ç ÈÄ Ã¼Å©ÇÑ´Ù.
+	// ëŒ€í™”ìƒìë¥¼ ì—´ ë•Œ ì–´ë–¤ ë²„íŠ¼ì´ ì²´í¬ë˜ì–´ì•¼ í•˜ëŠ”ì§€ ê²€ì‚¬ í›„ ì²´í¬í•œë‹¤.
 	case WM_INITDIALOG:
 		if (nWidth == 1)
 			CheckDlgButton(hDlg, IDC_THICK, BST_UNCHECKED);
@@ -136,31 +145,42 @@ BOOL CALLBACK OptionDlgProc(HWND hDlg, UINT iMessage, WPARAM wParam, LPARAM lPar
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
 		{
-		case IDOK:
-			if (IsDlgButtonChecked(hDlg, IDC_THICK)) // ¹öÆ°ÀÌ Ã¼Å©µÇ¾î ÀÖ´Â°¡?
+		case IDC_RED:
+			dwColor = RGB(255, 0, 0);
+			return TRUE;
+
+		case IDC_YELLOW:
+			dwColor = RGB(255, 255, 0);
+			return TRUE;
+
+		case IDC_BLUE:
+			dwColor = RGB(0, 0, 255);
+			return TRUE;
+
+		case IDC_BLACK:
+			dwColor = RGB(0, 0, 0);
+			return TRUE;
+
+		case IDC_THICK:
+			if (IsDlgButtonChecked(hDlg, IDC_THICK)) // ë²„íŠ¼ì´ ì²´í¬ë˜ì–´ ìˆëŠ”ê°€?
 				nWidth = 5;
 			else
 				nWidth = 1;
-
-			// ¶óµğ¿À ¹öÆ°ÀÌ±â¿¡ °¢ ¹öÆ°À» ¸ğµÎ if·Î °Ë»çÇÒ ÇÊ¿ä°¡ ¾ø´Ù.
-			if (IsDlgButtonChecked(hDlg, IDC_BLACK))
-				dwColor = RGB(0, 0, 0);
-			else if (IsDlgButtonChecked(hDlg, IDC_RED))
-				dwColor = RGB(255, 0, 0);
-			else if (IsDlgButtonChecked(hDlg, IDC_YELLOW))
-				dwColor = RGB(255, 255, 0);
-			else
-				dwColor = RGB(0, 0, 255);
-			
-			EndDialog(hDlg, IDOK);
 			return TRUE;
 
+		case IDC_CLEAR:
+			InvalidateRect(hWndMain, NULL, TRUE);
+			return TRUE;
+
+		// ëª¨ë¸ë¦¬ìŠ¤í˜• ëŒ€í™”ìƒìì´ê¸° ë•Œë¬¸ì— ë‹«ëŠ” ê²ƒì€ ì·¨ì†Œë²„íŠ¼ì„ ëˆ„ë¥´ê±°ë‚˜ ë‹«ê¸°ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ ë¿ì´ë‹¤.
 		case IDCANCEL:
-			EndDialog(hDlg, IDCANCEL);
+		case IDCLOSE:
+			DestroyWindow(hMDlg);
+			hMDlg = NULL;
 			return TRUE;
 		}
 		break;
 	}
-	
+
 	return FALSE;
 }
