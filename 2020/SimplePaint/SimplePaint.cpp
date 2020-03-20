@@ -9,7 +9,7 @@ BOOL CALLBACK OptionDlgProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
 HWND hWndMain;
 HWND hMDlg; // 옵션 대화상자 핸들
-LPCTSTR lpszClass = TEXT("SimplePaint version 3.0");
+LPCTSTR lpszClass = TEXT("SimplePaint version 3.1");
 
 // 옵션 대화상자에서도 사용해야 하기에 전역 변수로 변경
 int nWidth = 1;
@@ -123,6 +123,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 BOOL CALLBACK OptionDlgProc(HWND hDlg, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
+	// 스크롤 바의 핸들을 저장할 변수
+	static HWND hRedScr, hGreScr, hBluScr;
+	// 현재 스크롤 바의 위치를 저장하고 있을 변수
+	static int nRedPos, nGrePos, nBluPos;
+
 	switch (iMessage)
 	{
 	// 대화상자를 열 때 어떤 버튼이 체크되어야 하는지 검사 후 체크한다.
@@ -140,25 +145,116 @@ BOOL CALLBACK OptionDlgProc(HWND hDlg, UINT iMessage, WPARAM wParam, LPARAM lPar
 			CheckDlgButton(hDlg, IDC_YELLOW, BST_CHECKED);
 		else
 			CheckDlgButton(hDlg, IDC_BLUE, BST_CHECKED);
+
+		hRedScr = GetDlgItem(hDlg, IDC_SCRRED);
+		hGreScr = GetDlgItem(hDlg, IDC_SCRGREEN);
+		hBluScr = GetDlgItem(hDlg, IDC_SCRBLUE);
+
+		// 스크롤 바의 길이를 지정한다. SB_CTL 속성을 주면 별도의 컨트롤이 부여된다.
+		SetScrollRange(hRedScr, SB_CTL, 0, 255, TRUE);
+		SetScrollRange(hGreScr, SB_CTL, 0, 255, TRUE);
+		SetScrollRange(hBluScr, SB_CTL, 0, 255, TRUE);
+
+		// 초기 스크롤 바의 위치를 지정한다. 초기는 검정색이니 모두 0에 위치한다.
+		SetScrollPos(hRedScr, SB_CTL, 0, TRUE);
+		SetScrollPos(hGreScr, SB_CTL, 0, TRUE);
+		SetScrollPos(hBluScr, SB_CTL, 0, TRUE);
 		return TRUE;
+
+	case WM_HSCROLL:
+	{
+		int tempPos; // 스크롤 바의 변경될 위치를 임시적으로 저장할 변수
+
+		// 직접 조정 버튼을 선택하지 않으면 작업할 수 없다.
+		if (!IsDlgButtonChecked(hDlg, IDC_USERDEF))
+		{
+			MessageBox(hDlg, TEXT("직접 조정 버튼을 선택하세요."), TEXT("알림"), MB_OK);
+			return TRUE;
+		}
+
+		if ((HWND)lParam == hRedScr)
+			tempPos = nRedPos;
+		else if ((HWND)lParam == hGreScr)
+			tempPos = nGrePos;
+		else
+			tempPos = nBluPos;
+
+		// 스크롤 바의 어디를 눌렀는가?
+		switch (LOWORD(wParam))
+		{
+		case SB_LINELEFT:
+			tempPos = max(0, tempPos - 1);
+			break;
+
+		case SB_LINERIGHT:
+			tempPos = min(255, tempPos + 1);
+			break;
+
+		case SB_PAGELEFT:
+			tempPos = max(0, tempPos - 10);
+			break;
+
+		case SB_PAGERIGHT:
+			tempPos = min(255, tempPos + 10);
+			break;
+
+		case SB_THUMBTRACK: // 스크롤 바를 드래그하고 있다면
+			tempPos = HIWORD(wParam); // 현재 위치를 tempPos에 저장한다.
+			break;
+		}
+
+		if ((HWND)lParam == hRedScr)
+			nRedPos = tempPos;
+		else if ((HWND)lParam == hGreScr)
+			nGrePos = tempPos;
+		else
+			nBluPos = tempPos;
+
+		SetScrollPos((HWND)lParam, SB_CTL, tempPos, TRUE);
+		dwColor = RGB(nRedPos, nGrePos, nBluPos);
+		return TRUE;
+	}
 
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
 		{
 		case IDC_RED:
 			dwColor = RGB(255, 0, 0);
+			nRedPos = 255;
+			nGrePos = nBluPos = 0;
+			SetScrollPos(hRedScr, SB_CTL, nRedPos, TRUE);
+			SetScrollPos(hGreScr, SB_CTL, nGrePos, TRUE);
+			SetScrollPos(hBluScr, SB_CTL, nBluPos, TRUE);
 			return TRUE;
 
 		case IDC_YELLOW:
 			dwColor = RGB(255, 255, 0);
+			nRedPos = nGrePos = 255;
+			nBluPos = 0;
+			SetScrollPos(hRedScr, SB_CTL, nRedPos, TRUE);
+			SetScrollPos(hGreScr, SB_CTL, nGrePos, TRUE);
+			SetScrollPos(hBluScr, SB_CTL, nBluPos, TRUE);
 			return TRUE;
 
 		case IDC_BLUE:
 			dwColor = RGB(0, 0, 255);
+			nRedPos = nGrePos = 0;
+			nBluPos = 255;
+			SetScrollPos(hRedScr, SB_CTL, nRedPos, TRUE);
+			SetScrollPos(hGreScr, SB_CTL, nGrePos, TRUE);
+			SetScrollPos(hBluScr, SB_CTL, nBluPos, TRUE);
 			return TRUE;
 
 		case IDC_BLACK:
 			dwColor = RGB(0, 0, 0);
+			nRedPos = nGrePos = nBluPos = 0;
+			SetScrollPos(hRedScr, SB_CTL, nRedPos, TRUE);
+			SetScrollPos(hGreScr, SB_CTL, nGrePos, TRUE);
+			SetScrollPos(hBluScr, SB_CTL, nBluPos, TRUE);
+			return TRUE;
+
+		case IDC_USERDEF:
+			dwColor = RGB(nRedPos, nGrePos, nBluPos);
 			return TRUE;
 
 		case IDC_THICK:
