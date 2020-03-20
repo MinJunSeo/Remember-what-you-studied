@@ -103,7 +103,19 @@ If you click the mouse right button, you can open the option dialog.
 ![캡처](https://user-images.githubusercontent.com/51042546/77033324-3aeb8a00-69ea-11ea-86d0-dae84fda5c74.JPG)  
 From now on, this dialog box is modeless dialog box. So, you can draw during you open this dialog box.  
 This dialog box has 다시 그리기 button, so you push this button, will be erased all images.  
-If you pick the color or thick, that will be applied real time.
+If you pick the color or thick, that will be applied real time.  
+  
+## version 3.1
+  
+![image](https://user-images.githubusercontent.com/51042546/77131279-7d6e9e80-6a9e-11ea-9ed4-d6c9f94d497d.png)  
+From now on, you can pick the color to scroll RGB scrollbar.  
+But, you can pick the color by scrollbar when you check the 직접 조정 button.  
+If you don't check 직접 조정 button and scroll RGB scrollbar,  
+  
+![image](https://user-images.githubusercontent.com/51042546/77131381-d3434680-6a9e-11ea-9a44-e5e070a971fd.png)  
+will appear a messagebox to inform you that please check the 직접 조정 button.  
+  
+But it has some bug. The messagebox appear twice. I don't know why the message box appear twice. I'm sorry.
   
 # API Reference
   
@@ -123,4 +135,7 @@ SamplePaint program's execution result with version 1.0
 SamplePaint program's execution result with version 2.0  
   
 ![캡처](https://user-images.githubusercontent.com/51042546/77033602-0a582000-69eb-11ea-9500-d5a01581228e.JPG)  
-SamplePaint program's execution result with version 3.0
+SamplePaint program's execution result with version 3.0  
+  
+![캡처](https://user-images.githubusercontent.com/51042546/77131503-32a15680-6a9f-11ea-837e-3b2db0fdf176.JPG)  
+SamplePaint program's execution result with version 3.1
