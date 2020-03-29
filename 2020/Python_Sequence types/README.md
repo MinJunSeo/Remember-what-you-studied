@@ -16,6 +16,10 @@ Python - Sequence types
   
 1. 리스트의 method에 대하여 정리하기  
   
+## 문자열
+  
+1. 문자열의 method에 대하여 정리하기  
+  
 # Reference
   
 <a href = "https://dojang.io/course/view.php?id=7">파이썬 코딩 도장</a>
