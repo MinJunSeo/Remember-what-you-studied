@@ -4,7 +4,7 @@ Windows API - Biblt
   
 # Goal
   
-Bitblt 레퍼런스를 참고하여 Bitblt 함수 이해하기  
+BitBlt 레퍼런스를 참고하여 Bitblt 함수 이해하기  
   
 # Reference
   
