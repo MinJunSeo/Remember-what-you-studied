@@ -13,4 +13,4 @@ CheckDlgButton 함수에 대한 레퍼런스를 작성하여 개념 학습하기
   
 ## 작성 이력
   
-2020-04-07 : CheckDlgButton 함수의 레퍼런스를 정리한 CheckDlgButton.md 파일을 작
+2020-04-07 : CheckDlgButton 함수의 레퍼런스를 정리한 CheckDlgButton.md 파일을 작성함
