@@ -92,23 +92,23 @@ BOOL CALLBACK DlgProc(HWND hDlg, UINT iMessage, WPARAM wParam, LPARAM lParam)
 void MoveToParentCenter(HWND hDlg)
 {
 	int x, y;
-	RECT rtMain, rtDlg; // main window¿Í ´ëÈ­»óÀÚ ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+	RECT rtMain, rtDlg; // main windowì™€ ëŒ€í™”ìƒì ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
 
-	if (!IsWindowVisible(hWndMain)) // window°¡ ÃÖ¼ÒÈ­µÇ¾î ÀÖ´Â °æ¿ì
+	if (!IsWindowVisible(hWndMain)) // windowê°€ ìµœì†Œí™”ë˜ì–´ ìˆëŠ” ê²½ìš°
 		ShowWindow(hWndMain, SW_SHOW);
 
-	// °¢ windowÀÇ È­¸é»óÀÇ ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+	// ê° windowì˜ í™”ë©´ìƒì˜ ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
 	GetWindowRect(hWndMain, &rtMain);
 	GetWindowRect(hDlg, &rtDlg);
 
-	// main windowÀÇ Áß¾Ó ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+	// main windowì˜ ì¤‘ì•™ ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
 	x = (rtMain.left + rtMain.right) / 2;
 	y = (rtMain.top + rtMain.bottom) / 2;
 
-	// ´ëÈ­»óÀÚÀÇ Àı¹İ Æø¸¸Å­ x, y¸¦ °¨¼ÒÇØ¾ß ÇÑ´Ù.
+	// ëŒ€í™”ìƒìì˜ ì ˆë°˜ í­ë§Œí¼ x, yë¥¼ ê°ì†Œí•´ì•¼ í•œë‹¤.
 	x -= (rtDlg.right - rtDlg.left) / 2;
 	y -= (rtDlg.bottom - rtDlg.top) / 2;
 
-	// Å©±â´Â º¯°æÇÏÁö ¾Ê°í À§Ä¡¸¸ ¿Å±â±â À§ÇØ SWP_NOSIZE »ç¿ë
+	// í¬ê¸°ëŠ” ë³€ê²½í•˜ì§€ ì•Šê³  ìœ„ì¹˜ë§Œ ì˜®ê¸°ê¸° ìœ„í•´ SWP_NOSIZE ì‚¬ìš©
 	SetWindowPos(hDlg, hWndMain, x, y, 0, 0, SWP_NOSIZE);
 }
