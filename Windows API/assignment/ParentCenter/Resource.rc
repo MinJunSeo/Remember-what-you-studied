@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// �ѱ���(���ѹα�) resources
+// 한국어(대한민국) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
 LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
@@ -55,9 +55,9 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Ȯ��",IDOK,199,156,50,14
-    PUSHBUTTON      "���",IDCANCEL,253,156,50,14
-    LTEXT           "���� ���� �θ� �������� �߾ӿ� �ֽ��ϴ�.",IDC_STATIC,89,76,122,8
+    DEFPUSHBUTTON   "확인",IDOK,199,156,50,14
+    PUSHBUTTON      "취소",IDCANCEL,253,156,50,14
+    LTEXT           "저는 현재 부모 윈도우의 중앙에 있습니다.",IDC_STATIC,89,76,122,8
 END
 
 
@@ -90,7 +90,7 @@ BEGIN
     0
 END
 
-#endif    // �ѱ���(���ѹα�) resources
+#endif    // 한국어(대한민국) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
