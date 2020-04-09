@@ -13,5 +13,6 @@ JavaScript의 Data type에 대하여 이해합니다.
   
 ## 작성 이력
   
-2020-04-08 : Data type 중 Number에 대하여 정리한 Number.md 파일을 작성함
-2020-04-08 : Data type 중 String에 대하여 정리한 String.md 파일을 작성함
+2020-04-08 : Data type 중 Number에 대하여 정리한 Number.md 파일을 작성함  
+2020-04-08 : Data type 중 String에 대하여 정리한 String.md 파일을 작성함  
+2020-04-09 : 문자열을 조금 더 쉽게 작성하는데 도움을 주는 Template Literal을 String.md에 추가함  
