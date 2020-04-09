@@ -10,6 +10,7 @@ JavaScript의 Data type에 대하여 이해합니다.
   
 <a href = "https://opentutorials.org/course/3332/21031" target = "_blank">Number - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3332/21033" target = "_blank">String - 생활코딩</a>  
+<a href = "https://opentutorials.org/course/3332/21045" target = "_blank">Template Literal - 생활 코딩</a>  
   
 ## 작성 이력
   
