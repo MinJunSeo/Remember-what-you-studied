@@ -16,4 +16,8 @@ BeginPaint 함수에 대한 레퍼런스 만들기
 「Windows API 정복 1권」 - 김상형 저  
 <a href = "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-beginpaint">
 MSDN
-</a>
+</a>  
+  
+## 작성 이력
+  
+2020-03-10 : Windows API의 함수 BeginPain의 레퍼런스를 작성한 BeginPain.md 파일을 작성함
