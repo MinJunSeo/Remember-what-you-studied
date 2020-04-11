@@ -138,4 +138,11 @@ SamplePaint program's execution result with version 2.0
 SamplePaint program's execution result with version 3.0  
   
 ![캡처](https://user-images.githubusercontent.com/51042546/77131503-32a15680-6a9f-11ea-837e-3b2db0fdf176.JPG)  
-SamplePaint program's execution result with version 3.1
+SamplePaint program's execution result with version 3.1  
+  
+## 작성 이력
+  
+2020-03-17 : SimplePaint의 1.0 버전인 SimplePaint.cpp 파일과 SimplePaint.exe 파일을 추가함  
+2020-03-18 : SimplePaint의 버전을 2.0으로 업그레이드 하였다. .sln 파일과 resource 파일들을 추가함  
+2020-03-19 : SimplePaint의 버전을 3.0으로 업그레이드 하였다.  
+2020-03-20 : SimplePaint의 버전을 3.1로 업그레이드 하였다.
