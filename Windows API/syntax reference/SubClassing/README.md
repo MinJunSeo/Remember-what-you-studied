@@ -12,4 +12,8 @@ Make Reference about SubClassing
   
 # Reference
   
-「Windows API 정복 1권」 - 김상형 저
+「Windows API 정복 1권」 - 김상형 저  
+  
+## 작성 이력
+  
+2020-03-14 : Windows API의 서브 클래싱에 대해 정리한 SubClassing.md 파일을 작성함
