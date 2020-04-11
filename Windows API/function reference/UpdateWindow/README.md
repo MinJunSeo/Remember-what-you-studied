@@ -15,4 +15,8 @@ UpdateWindow 함수에 대한 레퍼런스 만들기
 「Windows API 정복 1권」 - 김상형 저  
 <a href = "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-updatewindow">
 MSDN (UpdateWindow funtion)
-</a>
+</a>  
+  
+## 작성 이력
+  
+2020-03-09 : Windows API의 함수 UpdateWindow의 레퍼런스를 작성한 UpdateWindow.md 파일을 작성함
