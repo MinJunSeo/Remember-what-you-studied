@@ -13,4 +13,5 @@ Windows API - Dialog Procedure
   
 ## 작성 이력
   
-2020-04-01 : Windows API의 대화상자 프로시저에 대하여 정리한 Dialog Procedure.md 파일을 작성함
+2020-04-01 : Windows API의 대화상자 프로시저에 대하여 정리한 Dialog Procedure.md 파일을 작성함  
+2020-04-03 : 대화상자 프로시저가 반환하는 값에 대하여 정리한 Return value.md 파일을 작성함
