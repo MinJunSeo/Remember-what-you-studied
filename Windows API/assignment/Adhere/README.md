@@ -86,3 +86,7 @@ ptMaxTrackSize는 경계선을 드래그하여 지정할 수 있는 윈도우의
   
 「Windows API 정복 1권」 - 김상형 저  
 MSDN(MicroSoft Developer Network)  
+  
+## 작성 이력
+  
+2020-03-05 : Adhere.cpp 파일을 
