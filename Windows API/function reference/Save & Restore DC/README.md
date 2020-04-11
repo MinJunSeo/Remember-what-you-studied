@@ -11,4 +11,8 @@ Windows API - SaveDC & RestoreDC
   
 「Windows API 정복 1권」 - 김상형 저  
 <a href = "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-savedc">SaveDC MSDN</a>  
-<a href = "https://docs.microsoft.com/ko-kr/windows/win32/api/wingdi/nf-wingdi-restoredc">RestoreDC MSDN</a>
+<a href = "https://docs.microsoft.com/ko-kr/windows/win32/api/wingdi/nf-wingdi-restoredc">RestoreDC MSDN</a>  
+  
+## 작성 이력
+  
+2020-03-31 : SaveDC와 RestoreDC 함수에 대하여 정리한 Save and Restore DC.md 파일을 작성함
