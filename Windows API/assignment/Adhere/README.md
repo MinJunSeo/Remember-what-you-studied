@@ -89,4 +89,4 @@ MSDN(MicroSoft Developer Network)
   
 ## 작성 이력
   
-2020-03-05 : Adhere.cpp 파일을 
+2020-03-05 : Adhere.cpp 파일을 추가함
