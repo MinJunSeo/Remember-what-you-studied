@@ -23,4 +23,9 @@ Windows API 정복 1권을 읽으면서 Windows API를 공부하고 있고 그 �
   
 ## Reference
   
-「Windows API 정복 1권」 - 김상형 
+「Windows API 정복 1권」 - 김상형  
+  
+### 작성 이력
+  
+2020-03-04 : UserMes.cpp 파일을 추가함  
+2020-03-04 : SendUserMes.cpp 파일을 추가함
