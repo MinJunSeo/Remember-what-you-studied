@@ -10,4 +10,8 @@ Windows API - Hungarian Naming & 사용자 정의 자료형
   
 # Reference
   
-「Windows API 정복 1권」 - 김상형 저
+「Windows API 정복 1권」 - 김상형 저  
+  
+## 작성 이력
+  
+2020-03-21 : 헝가리안 명명법과 Widnwos API의 사용자 정의 자료형을 사용하는 이유에 대해 정리한 Hungrian Naming.md 파일을 작성함
