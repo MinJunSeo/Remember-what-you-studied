@@ -22,4 +22,10 @@ Python - Sequence types
   
 # Reference
   
-<a href = "https://dojang.io/course/view.php?id=7">파이썬 코딩 도장</a>
+<a href = "https://dojang.io/course/view.php?id=7">파이썬 코딩 도장</a>  
+  
+## 작성 이력
+  
+2020-03-25 : 파이썬의 시퀀스 자료형이 사용할 수 있는 기능을 정리한 Sequence types function.md 파일을 작성함  
+2020-03-28 : 파이썬의 리스트가 사용할 수 있는 메서드에 대해 정리한 list_method.md 파일을 작성함  
+2020-03-29 : 파이썬의 문자열이 사용할 수 있는 메서드에 대해 정리한 str_method.md 파일을 작성함
