@@ -13,4 +13,8 @@ AdjustWindowRect 함수에 대해 알아보자!
 # Reference
   
 「Windows API 정복 1권」 - 김상형 저  
-MSDN(MicroSoft Developer Network) - https://docs.microsoft.com/ko-kr
+<a href = "https://docs.microsoft.com/ko-kr" target = "_blank">MSDN</a>  
+  
+## 작성 이력
+  
+2020-03-08 : Windows API의 함수 AdjustWindowRect의 레퍼런스를 작성한 AdjustWindowRect.md 파일을 작성함
