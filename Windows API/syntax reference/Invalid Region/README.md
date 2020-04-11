@@ -13,4 +13,8 @@ Windows를 활용한 프로그램의 경우 그리기는 절대로 빼놓을 수
 # Reference
   
 「Windows API 정복 1권」 - 김상형 저  
-MSDN(https://docs.microsoft.com/ko-kr/) - 주로 함수 원형을 검색할 때 참고합니다.
+MSDN(https://docs.microsoft.com/ko-kr/) - 주로 함수 원형을 검색할 때 참고합니다.  
+  
+## 작성 이력
+  
+2020-03-07 : Windows API의 무효 영역에 대해 정리한 Invalid Region.md 파일을 작성함
