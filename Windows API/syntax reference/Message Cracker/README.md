@@ -12,4 +12,8 @@ Windows API 기술 중 하나인 Message Cracker에 대해 이해하기
   
 # Reference
   
-「Windows API 정복 1권」 - 김상형 저
+「Windows API 정복 1권」 - 김상형 저  
+  
+## 작성 이력
+  
+2020-03-06 : Windows API의 Message Cracker에 대해 정리한 Message Cracker.md 파일을 작성함
