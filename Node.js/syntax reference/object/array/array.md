@@ -41,3 +41,24 @@ lenght 속성에 값을 부여할 수 있는데, 이렇게 될 경우 배열의 
 ## Array.every
   
 배열 객체의 every 속성은 인수로 callback 함수를 받습니다. 그 뒤, 배열의 요소에서 해당 callback 함수에서 거짓이 나오기 전까지 모든 요소를 대상으로 callback을 호출합니다. 물론 모둔 요소가 조건을 만족한다면 true를 반환합니다.  
+  
+## Array.reverse
+  
+배열 객체의 reverse 속성은 배열 요소의 순서를 반대로 뒤집는다. 이 속성은 순서를 반대로 뒤집은 새로운 배열을 만들지 않고 기존의 배열의 순서를 뒤집기 때문에, 실행하면 변경된 내용이 기존 배열에 저장된다.  
+  
+`배열.reverse()`와 같은 형태로 사용합니다.  
+   
+## Array.entries
+  
+배열 객체의 entries 메소드는 `인덱스, 값`의 쌍을 가지는 새로운 Array Iterator를 만들어 반환한다.  
+  
+	// Example
+	
+	var arr = [ 'a', 'b', 'c' ];
+	var iterator = arr.entries();
+	
+	console.log(iterator);
+	
+	// result
+	Array [0, 'a']
+  
