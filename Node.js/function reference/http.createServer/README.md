@@ -13,4 +13,4 @@ HTTP 모듈의 createServer method의 공식 API 문서 번역 및 정리하기
   
 ## 작성 이력
   
-2020-05-03 : HTTP 모듈의 createServer method에 대해 정리한 http.createServer.md를 작성하였습니다.
+2020-05-03 : HTTP 모듈의 createServer method에 대해 정리한 create server.md를 작성하였습니다.
