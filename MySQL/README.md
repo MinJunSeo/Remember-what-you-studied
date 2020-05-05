@@ -8,8 +8,10 @@ MySQL에 대해 배운 것을 정리하고 MySQL을 다룰 수 있게 되기
   
 # 작성 이력
   
-2020-05-05 : MySQL server를 cmd 창에서 접속하는 방법에 대해 정리한 server connection.md를 작성함  
+2020-05-05 : MySQL server를 cmd 창에서 접속하는 방법에 대해 정리한 server connection with cmd.md를 작성함  
+2020-05-05 : cmd 창에서 schema를 생성하고 사용하는 방법에 대해 정리한 use of schema.md를 작성함  
   
 # Reference
   
 <a href = "https://opentutorials.org/course/3161/19534" target = "_blank">MySQL 서버 접속 - 생활코딩</a>  
+<a href = "https://opentutorials.org/course/3161/19535" target = "_blank">MySQL 스키마의 사용 - 생활코딩</a>  
