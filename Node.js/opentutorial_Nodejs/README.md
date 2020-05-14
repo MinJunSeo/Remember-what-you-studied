@@ -30,7 +30,7 @@ data 디렉토리에 있는 파일들의 내용을 웹 사이트 상에 보여�
 MySQL과 연동하여 데이터베이스 내 테이블 목록을 웹 페이지 상에서 보여줍니다.
 # API Reference
   
-<a href = "https://opentutorials.org/course/1" target = "_blank">생활코딩</a>  
+<a href = "https://opentutorials.org/course/3347/21186" target = "_blank">MySQL로 홈페이지 구현 - 생활코딩</a>  
   
 # 수정 이력
   
