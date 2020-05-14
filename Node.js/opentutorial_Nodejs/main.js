@@ -67,21 +67,21 @@ var app = http.createServer(function(request,response)
         }
         else if(pathname === '/create')
         {
-            fs.readdir('./data', function(error, filelist)
+            db.query(`SELECT * FROM topic`, function(error, topics)
             {
                 var title = 'WEB - create';
-                var list = template.list(filelist);
-                var html = template.HTML(title, list, `
-                    <form action="/create_process" method="post">
-                        <p><input type="text" name="title" placeholder="title"></p>
+                var list = template.list(topics);
+                var html = template.HTML(title, list,
+                    `<form action = "/create_process" method = "POST">
                         <p>
-                            <textarea name="description" placeholder="description"></textarea>
+                            <input type = "text" name = "title" placeholder = "title">
                         </p>
                         <p>
-                            <input type="submit">
+                            <textarea name = "description" placeholder = "description"></textarea>
                         </p>
-                    </form>
-                `, '');
+                        <p><input type = "submit"></p>
+                    </form>`, '');
+                
                 response.writeHead(200);
                 response.end(html);
             });
@@ -91,16 +91,21 @@ var app = http.createServer(function(request,response)
             var body = '';
             request.on('data', function(data)
             {
-                    body = body + data;
+                body = body + data;
             });
             request.on('end', function()
             {
-                    var post = qs.parse(body);
-                    var title = post.title;
-                    var description = post.description;
-                    fs.writeFile(`data/${title}`, description, 'utf8', function(err)
+                var post = qs.parse(body);
+                
+                db.query(`
+                    INSERT INTO topic (title, description, created, author_id)
+                        VALUES (?, ?, NOW(), ?)`,
+                    [post.title, post.description, 1],
+                    function(error, result)
                     {
-                        response.writeHead(302, {Location: `/?id=${title}`});
+                        if(error) { throw error; }
+                        
+                        response.writeHead(302, {Location: `/?id=${result.insertId}`});
                         response.end();
                     });
             });
