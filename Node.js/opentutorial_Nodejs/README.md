@@ -27,12 +27,20 @@ data 디렉토리에 있는 파일들의 내용을 웹 사이트 상에 보여�
 ## version 1.1
   
 ![select * from table](https://user-images.githubusercontent.com/51042546/81892159-55ef0a80-95e5-11ea-8ec7-6a05be6ccb7b.png)  
-MySQL과 연동하여 데이터베이스 내 테이블 목록을 웹 페이지 상에서 보여줍니다.
+MySQL과 연동하여 데이터베이스 내 테이블 목록을 웹 페이지 상에서 보여줍니다.  
+  
+## version 1.2
+  
+![show description](https://user-images.githubusercontent.com/51042546/81895534-62776100-95ed-11ea-8109-0f621fd29ffe.png)  
+테이블에 저장되어 있는 제목과 본문을 불러와 웹 페이지 상에서 볼 수 있습니다.  
+  
 # API Reference
   
 <a href = "https://opentutorials.org/course/3347/21186" target = "_blank">MySQL로 홈페이지 구현 - 생활코딩</a>  
+<a href = "https://opentutorials.org/course/3347/21187" target = "_blank">MySQL로 상세보기 구현 - 생활코딩</a>  
   
 # 수정 이력
   
 2020-05-14 : version 1.0 소스 코드를 추가하였습니다.
 2020-05-14 : main.js와 lib/template.js를 1.1 버전으로 업데이트하였습니다.  
+2020-05-14 : main.js를 1.2 버전으로 업데이트하였습니다.
