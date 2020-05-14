@@ -34,13 +34,20 @@ MySQL과 연동하여 데이터베이스 내 테이블 목록을 웹 페이지 �
 ![show description](https://user-images.githubusercontent.com/51042546/81895534-62776100-95ed-11ea-8109-0f621fd29ffe.png)  
 테이블에 저장되어 있는 제목과 본문을 불러와 웹 페이지 상에서 볼 수 있습니다.  
   
+## version 1.3
+  
+웹 사이트 상에서 데이터 정보(제목, 본문)를 입력하여 데이터베이스에 해당 정보를 추가하고, 추가한 정보를 웹 사이트에서 볼 수 있다.  
+단, 아직 글쓴이 id를 받지 못하기 때문에 글쓴이 id값이 고정되어 있다.  
+  
 # API Reference
   
 <a href = "https://opentutorials.org/course/3347/21186" target = "_blank">MySQL로 홈페이지 구현 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21187" target = "_blank">MySQL로 상세보기 구현 - 생활코딩</a>  
+<a href = "https://opentutorials.org/course/3347/21188" target = "_blank">MySQL로 글생성 기능 구현 - 생활코딩</a>  
   
 # 수정 이력
   
 2020-05-14 : version 1.0 소스 코드를 추가하였습니다.
 2020-05-14 : main.js와 lib/template.js를 1.1 버전으로 업데이트하였습니다.  
 2020-05-14 : main.js를 1.2 버전으로 업데이트하였습니다.
+2020-05-14 : main.js를 1.3 버전으로 업데이트하였습니다.  
