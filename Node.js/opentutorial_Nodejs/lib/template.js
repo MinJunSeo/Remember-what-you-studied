@@ -1,5 +1,6 @@
 module.exports = {
-  HTML:function(title, list, body, control){
+  HTML : function(title, list, body, control)
+  {
     return `
     <!doctype html>
     <html>
@@ -16,7 +17,8 @@ module.exports = {
     </html>
     `;
   },
-  list:function(topics){
+  list : function(topics)
+  {
     var list = '<ul>';
     var i = 0;
     while(i < topics.length){
@@ -25,5 +27,21 @@ module.exports = {
     }
     list = list+'</ul>';
     return list;
+  },
+  authorSelect : function(authors)
+  {
+    var tag = '';
+    var i = 0;
+
+    while(i < authors.length)
+    {
+        tag += `<option value = "${authors[i].id}">${authors[i].name}</option>`;
+        i++;
+    }
+
+    return`
+    <select name = "author">
+        ${tag}
+    </select>`;
   }
 }
