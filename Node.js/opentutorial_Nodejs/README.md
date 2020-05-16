@@ -53,6 +53,11 @@ MySQL과 연동하여 데이터베이스 내 테이블 목록을 웹 페이지 �
 ![show author](https://user-images.githubusercontent.com/51042546/82114912-7ad8ae80-979a-11ea-9aad-86cc5611ef7c.png)  
 MySQL의 JOIN 기능을 활용하여 웹 사이트에서 보고 있는 파일을 누가 작성하였는지 표기해줍니다.  
   
+## version 1.7
+  
+author 테이블에서 이름 목록을 불러와 파일 생성 시 글쓴이를 선택할 수 있습니다. 단, 사용자의 임의로 새로운 글쓴이를 추가할 수는 없습니다.  
+이제는 파일을 생성할 때 선택한 글쓴이로 데이터베이스에 저장됩니다.  
+  
 # API Reference
   
 <a href = "https://opentutorials.org/course/3347/21186" target = "_blank">MySQL로 홈페이지 구현 - 생활코딩</a>  
@@ -61,6 +66,7 @@ MySQL의 JOIN 기능을 활용하여 웹 사이트에서 보고 있는 파일을
 <a href = "https://opentutorials.org/course/3347/21189" target = "_blank">MySQL로 글수정 기능 구현 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21190" target = "_blank">MySQL로 글 삭제 기능 구현 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21191" target = "_blank">MySQL Join을 이용해서 상세보기 구현 - 생활코딩</a>  
+<a href = "https://opentutorials.org/course/3347/21192" target = "_blank">MySQL join을 이용해서 글생성 구현 - 생활코딩</a>  
   
 # 수정 이력
   
@@ -71,3 +77,4 @@ MySQL의 JOIN 기능을 활용하여 웹 사이트에서 보고 있는 파일을
 2020-05-14 : main.js를 1.4 버전으로 업데이트하였습니다.  
 2020-05-15 : main.js를 1.5 버전으로 업데이트하였습니다.  
 2020-05-16 : main.js를 1.6 버전으로 업데이트하였습니다.  
+2020-05-16 : main.js를 1.7 버전으로 업데이트하였습니다.  
