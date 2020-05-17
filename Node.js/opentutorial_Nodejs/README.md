@@ -58,6 +58,12 @@ MySQL의 JOIN 기능을 활용하여 웹 사이트에서 보고 있는 파일을
 author 테이블에서 이름 목록을 불러와 파일 생성 시 글쓴이를 선택할 수 있습니다. 단, 사용자의 임의로 새로운 글쓴이를 추가할 수는 없습니다.  
 이제는 파일을 생성할 때 선택한 글쓴이로 데이터베이스에 저장됩니다.  
   
+## version 1.8
+  
+author 테이블에서 이름 목록을 불러와 파일 수정 시 글쓴이를 선택할 수 있습니다. 단, 사용자의 임의로 새로운 글쓴이를 추가할 수는 없습니다.  
+가장 마지막으로 파일의 내용을 수정한 사람이 콤보 박스에 자동으로 선택되어 있도록 되어 있습니다.  
+파일을 수정할 때 선택한 글쓴이로 데이터베이스에 저장됩니다.  
+  
 # API Reference
   
 <a href = "https://opentutorials.org/course/3347/21186" target = "_blank">MySQL로 홈페이지 구현 - 생활코딩</a>  
@@ -67,6 +73,7 @@ author 테이블에서 이름 목록을 불러와 파일 생성 시 글쓴이를
 <a href = "https://opentutorials.org/course/3347/21190" target = "_blank">MySQL로 글 삭제 기능 구현 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21191" target = "_blank">MySQL Join을 이용해서 상세보기 구현 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21192" target = "_blank">MySQL join을 이용해서 글생성 구현 - 생활코딩</a>  
+<a href = "https://opentutorials.org/course/3347/21193" target = "_blank">MySQL join을 이용해서 글수정 구현 - 생활코딩</a>  
   
 # 수정 이력
   
@@ -78,3 +85,4 @@ author 테이블에서 이름 목록을 불러와 파일 생성 시 글쓴이를
 2020-05-15 : main.js를 1.5 버전으로 업데이트하였습니다.  
 2020-05-16 : main.js를 1.6 버전으로 업데이트하였습니다.  
 2020-05-16 : main.js를 1.7 버전으로 업데이트하였습니다.  
+2020-05-17 : main.js와 lib/template.js를 1.8 버전으로 업데이트하였습니다.
