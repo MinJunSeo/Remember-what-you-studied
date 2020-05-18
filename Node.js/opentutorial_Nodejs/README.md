@@ -64,6 +64,11 @@ author 테이블에서 이름 목록을 불러와 파일 수정 시 글쓴이를
 가장 마지막으로 파일의 내용을 수정한 사람이 콤보 박스에 자동으로 선택되어 있도록 되어 있습니다.  
 파일을 수정할 때 선택한 글쓴이로 데이터베이스에 저장됩니다.  
   
+## version 1.8.1
+  
+가독성과 유지, 보수관리의 효율성을 위해 파일 분할 관리를 시작합니다. 해당 버전에서는 데이터베이스에 접속하는 구문을 lib 디렉토리에 따로 파일을 만들어 관리하기 시작합니다.  
+또한 main.js에서 사용하지 않는 모듈을 불러오는 구문들을 지워 필요한 코드만을 남겨놓았습니다.  
+  
 # API Reference
   
 <a href = "https://opentutorials.org/course/3347/21186" target = "_blank">MySQL로 홈페이지 구현 - 생활코딩</a>  
@@ -74,6 +79,7 @@ author 테이블에서 이름 목록을 불러와 파일 수정 시 글쓴이를
 <a href = "https://opentutorials.org/course/3347/21191" target = "_blank">MySQL Join을 이용해서 상세보기 구현 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21192" target = "_blank">MySQL join을 이용해서 글생성 구현 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21193" target = "_blank">MySQL join을 이용해서 글수정 구현 - 생활코딩</a>  
+<a href = "https://opentutorials.org/course/3347/21195" target = "_blank">Node.js의 DB 설정정보 정리정돈 - 생활코딩</a>  
   
 # 수정 이력
   
@@ -85,4 +91,5 @@ author 테이블에서 이름 목록을 불러와 파일 수정 시 글쓴이를
 2020-05-15 : main.js를 1.5 버전으로 업데이트하였습니다.  
 2020-05-16 : main.js를 1.6 버전으로 업데이트하였습니다.  
 2020-05-16 : main.js를 1.7 버전으로 업데이트하였습니다.  
-2020-05-17 : main.js와 lib/template.js를 1.8 버전으로 업데이트하였습니다.
+2020-05-17 : main.js와 lib/template.js를 1.8 버전으로 업데이트하였습니다.  
+2020-05-18 : 파일 분할 관리를 시작합니다. 데이터베이스 접속 관련 파일(db.js)을 만들어 관리하고, main.js에서는 해당 모듈을 불러와 사용합니다.  
