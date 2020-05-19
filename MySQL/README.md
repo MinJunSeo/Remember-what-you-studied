@@ -18,6 +18,7 @@ MySQL에 대해 배운 것을 정리하고 MySQL을 다룰 수 있게 되기
 2020-05-10 : MySQL에서 table 이름을 변경하는 RENAME 명령에 대해 정리한 rename table.md를 작성함  
 2020-05-11 : MySQL에서 서로 다른 테이블의 정보를 서로 결합하는 JOIN 명령에 대해 정리한 join.md를 작성함  
 2020-05-12 : Database server의 의미를 Internet의 정의를 통해 이해할 수 있도록 정리한 internet and database.md를 작성함  
+2020-05-19 : MySQL에서 특정 사용자에게 부여된 권한을 회수하는 REVOKE 명령에 대해 정리한 revoke.md를 작성함  
   
 # Reference
   
@@ -31,3 +32,5 @@ MySQL에 대해 배운 것을 정리하고 MySQL을 다룰 수 있게 되기
 <a href = "https://opentutorials.org/course/3161/19521" target = "_blank">테이블 분리하기 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3161/19545" target = "_blank">관계형 데이터베이스의 꽃 JOIN - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3161/19546" target = "_blank">인터넷과 데이터베이스 - 생활코딩</a>  
+<a href = "https://dev.mysql.com/doc/refman/5.6/en/revoke.html" target = "_blank">MySQL 13.7.1.6 REVOKE Statement</a>  
+<a href = "https://wayhome25.github.io/mysql/2017/03/23/mysql-11-user-setting/" target = "_blank">MySQL 0.7 MySQL - 사용자 관리, 권한 - 초보몽키의 개발공부로그</a>  
