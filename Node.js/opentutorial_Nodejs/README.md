@@ -69,6 +69,11 @@ author 테이블에서 이름 목록을 불러와 파일 수정 시 글쓴이를
 가독성과 유지, 보수관리의 효율성을 위해 파일 분할 관리를 시작합니다. 해당 버전에서는 데이터베이스에 접속하는 구문을 lib 디렉토리에 따로 파일을 만들어 관리하기 시작합니다.  
 또한 main.js에서 사용하지 않는 모듈을 불러오는 구문들을 지워 필요한 코드만을 남겨놓았습니다.  
   
+## version 1.8.2
+  
+topic 테이블에서 튜플을 읽어와 해당 테이블에 있는 파일 목록을 출력하는 기능을 모듈화하였습니다.  
+메인 페이지를 구성하는 명령을 topic.js라는 파일을 통해 파일 분할 후 모듈 관리를 통해 코드의 가독성이 조금 향상하였습니다.  
+  
 # API Reference
   
 <a href = "https://opentutorials.org/course/3347/21186" target = "_blank">MySQL로 홈페이지 구현 - 생활코딩</a>  
@@ -80,6 +85,7 @@ author 테이블에서 이름 목록을 불러와 파일 수정 시 글쓴이를
 <a href = "https://opentutorials.org/course/3347/21192" target = "_blank">MySQL join을 이용해서 글생성 구현 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21193" target = "_blank">MySQL join을 이용해서 글수정 구현 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21195" target = "_blank">Node.js의 DB 설정정보 정리정돈 - 생활코딩</a>  
+<a href = "https://opentutorials.org/course/3347/21196" target = "_blank">Node.js 코드의 정리정돈 (topic) - 생활코딩</a>  
   
 # 수정 이력
   
@@ -93,3 +99,4 @@ author 테이블에서 이름 목록을 불러와 파일 수정 시 글쓴이를
 2020-05-16 : main.js를 1.7 버전으로 업데이트하였습니다.  
 2020-05-17 : main.js와 lib/template.js를 1.8 버전으로 업데이트하였습니다.  
 2020-05-18 : 파일 분할 관리를 시작합니다. 데이터베이스 접속 관련 파일(db.js)을 만들어 관리하고, main.js에서는 해당 모듈을 불러와 사용합니다.  
+2020-05-21 : 메인 페이지를 구성하는 명령을 topic.js 파일에서 관리하고 main.js에서는 해당 모듈을 불러와 사용합니다.
