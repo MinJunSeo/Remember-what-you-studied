@@ -13,6 +13,7 @@ Linux 수업을 들으면서 Ubuntu에 대한 내용을 정리하는 공간입�
 2020-05-22 : Linux Ubuntu에서 화면에 출력되는 글씨 색상을 변경하는 법에 대해 정리한 change text color.md를 작성함  
 2020-05-23 : Linux Ubuntu에서 명령어에 별칭을 붙일 수 있는 alias 명령에 대해 정리한 alias.md를 작성함  
 2020-05-24 : Linux의 부팅 순서와 run level에 대해 정리한 run level.md를 작성함  
+2020-05-25 : Linux에서 profile을 저장하는 경로 2개와 각각의 차이점에 대해 정리하였습니다.  
   
 # Reference
   
@@ -27,3 +28,4 @@ Linux 수업을 들으면서 Ubuntu에 대한 내용을 정리하는 공간입�
 <a href = "https://youtu.be/ZUKLKT3KMYE" target = "_blank">리눅스 강의 33강.Linux 명령어 별칭 만들어 사용하기 - 뉴렉처</a>  
 <a href = "https://youtu.be/Y7VzJjTEOXc" target = "_blank">리눅스 강의 34강.Linux 부팅 과정과 run level - 뉴렉처</a>  
 <a href = "https://kateee.tistory.com/51" target = "_blank">리눅스의 런레벨(Run level) - Follow your heart</a>  
+<a href = "https://youtu.be/gRUV7sICeNc" target = "_blank">리눅스 강의 35강.리눅스 프로필과 환경 변수 설정 - 뉴렉처</a>  
