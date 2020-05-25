@@ -34,3 +34,12 @@ number | name | mean
 5 | X11 | 기본적으로 run level 3과 동일하지만 **그래픽 유저 모드**라는 차이가 있다.
 6 | reboot | 시스템 재부팅
   
+부가적으로, Linux에서 컴퓨터를 종료하는 방법은 다음과 같다.  
+- poweroff (종료)  
+- shutdown (사용자에게 메시지 전달 후 종료)  
+- halt  
+- init 0  
+  
+부가적으로, Linux에서 컴퓨터를 재시작하는 방법은 다음과 같다.  
+- reboot (다른 사용자가 사용할 경우 root 계정으로 강제 재부팅된다.)  
+- init 6  
