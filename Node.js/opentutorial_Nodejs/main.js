@@ -1,9 +1,7 @@
 var http = require('http');
 var url = require('url');
-var qs = require('querystring');
-var template = require('./lib/template.js');
-var db = require('./lib/db.js');
 var topic = require('./lib/topic.js');
+var author = require('./lib/author.js');
 
 var app = http.createServer(function(request,response)
 {
@@ -41,6 +39,10 @@ var app = http.createServer(function(request,response)
     else if(pathname === '/delete_process')
     {
         topic.delete_process(request, response);
+    }
+    else if(pathname === '/author')
+    {
+        author.home(request, response);
     }
     else
     {
