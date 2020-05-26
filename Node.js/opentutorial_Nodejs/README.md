@@ -80,6 +80,21 @@ topic 테이블에서 튜플을 읽어와 해당 테이블에 있는 파일 목�
 웹 페이지 상에서 파일 내용을 변경하면 변경 정보가 topic 테이블에 반영되는 기능을 모듈화하였습니다.  
 웹 페이지 상에서 파일을 삭제하면 해당 정보가 topic 테이블에서 제거되는 기능을 모듈화하였습니다.  
   
+## version 1.9
+  
+![version 1.9](https://user-images.githubusercontent.com/51042546/82850475-8153ec80-9f37-11ea-848c-bf78d40add5d.JPG)  
+  
+main.js  
+- lib/author.js 모듈을 불러와 사용한다.  
+- pathname이 /author인 경우 author 테이블에 등록된 글쓴이의 정보를 표로 출력하도록 함  
+  
+template.js  
+- 메인 페이지에서 글쓴이 목록을 볼 수 있는 author 페이지로 갈 수 있는 링크를 걸었습니다.  
+- 데이터베이스 author 테이블에서 글쓴이 목록을 읽어와 이름과 직업 정보를 표로 만들어 반환하는 authorTable 기능 구현하였습니다.  
+  
+author.js  
+- template.js에서 반환된 표를 CSS 설정을 통해 보기 좋게 한 뒤 웹 페이지 상에 출력합니다.  
+  
 # API Reference
   
 <a href = "https://opentutorials.org/course/3347/21186" target = "_blank">MySQL로 홈페이지 구현 - 생활코딩</a>  
@@ -92,6 +107,7 @@ topic 테이블에서 튜플을 읽어와 해당 테이블에 있는 파일 목�
 <a href = "https://opentutorials.org/course/3347/21193" target = "_blank">MySQL join을 이용해서 글수정 구현 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21195" target = "_blank">Node.js의 DB 설정정보 정리정돈 - 생활코딩</a>  
 <a href = "https://opentutorials.org/course/3347/21196" target = "_blank">Node.js 코드의 정리정돈 (topic) - 생활코딩</a>  
+<a href = "https://opentutorials.org/course/3347/21202" target = "_blank">저자 목록 보기 구현 - 생활코딩</a>  
   
 # 수정 이력
   
@@ -104,6 +120,7 @@ topic 테이블에서 튜플을 읽어와 해당 테이블에 있는 파일 목�
 2020-05-16 : main.js를 1.6 버전으로 업데이트하였습니다.  
 2020-05-16 : main.js를 1.7 버전으로 업데이트하였습니다.  
 2020-05-17 : main.js와 lib/template.js를 1.8 버전으로 업데이트하였습니다.  
-2020-05-18 : 파일 분할 관리를 시작합니다. 데이터베이스 접속 관련 파일(db.js)을 만들어 관리하고, main.js에서는 해당 모듈을 불러와 사용합니다.  
-2020-05-21 : 메인 페이지를 구성하는 명령을 topic.js 파일에서 관리하고 main.js에서는 해당 모듈을 불러와 사용합니다.
+2020-05-18 : 파일 분할 관리를 시작합니다. 데이터베이스 접속 관련 파일(db.js)을 만들어 관리하고, main.js에서는 해당 모듈을 불러와 사용합니다.   
+2020-05-21 : 메인 페이지를 구성하는 명령을 topic.js 파일에서 관리하고 main.js에서는 해당 모듈을 불러와 사용합니다.  
 2020-05-25 : 글 생성, 글 변경, 글 삭제 기능을 topic.js 파일에서 관리하고 main.js에서는 해당 모듈을 불러와 사용합니다.  
+2020-05-26 : author 테이블에서 작가 정보를 읽어와 해당 정보를 표로 만들어 출력합니다.  
