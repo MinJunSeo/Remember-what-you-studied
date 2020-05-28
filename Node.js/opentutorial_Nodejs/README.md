@@ -95,19 +95,26 @@ template.js
 author.js  
 - template.js에서 반환된 표를 CSS 설정을 통해 보기 좋게 한 뒤 웹 페이지 상에 출력합니다.  
   
+## 1.10
+  
+main.js  
+- author 내용 변경 반영하기  
+- author 삭제 시 해당 author가 작성한 글도 연동 삭제  
+  
+template.js  
+- sanitize-html module을 사용하여 사용자의 잘못된 입력으로부터 서버를 보호합니다.  
+  
+topic.js  
+- sanitize-html module을 사용하여 사용자의 잘못된 입력으로부터 서버를 보호합니다.  
+  
+author.js  
+- author 내용을 변경한 후 update 버튼을 누를 경우 해당 정보가 데이터베이스에도 반영되며 동시에 웹 페이지에도 반영됩니다.  
+- delete 버튼을 누르면 author의 정보와 author가 작성한 모든 글을 데이터베이스 및 웹 페이지 상에서 삭제합니다.  
+- sanitize-html module을 사용하여 사용자의 잘못된 입력으로부터 서버를 보호합니다.  
+  
 # API Reference
   
-<a href = "https://opentutorials.org/course/3347/21186" target = "_blank">MySQL로 홈페이지 구현 - 생활코딩</a>  
-<a href = "https://opentutorials.org/course/3347/21187" target = "_blank">MySQL로 상세보기 구현 - 생활코딩</a>  
-<a href = "https://opentutorials.org/course/3347/21188" target = "_blank">MySQL로 글생성 기능 구현 - 생활코딩</a>  
-<a href = "https://opentutorials.org/course/3347/21189" target = "_blank">MySQL로 글수정 기능 구현 - 생활코딩</a>  
-<a href = "https://opentutorials.org/course/3347/21190" target = "_blank">MySQL로 글 삭제 기능 구현 - 생활코딩</a>  
-<a href = "https://opentutorials.org/course/3347/21191" target = "_blank">MySQL Join을 이용해서 상세보기 구현 - 생활코딩</a>  
-<a href = "https://opentutorials.org/course/3347/21192" target = "_blank">MySQL join을 이용해서 글생성 구현 - 생활코딩</a>  
-<a href = "https://opentutorials.org/course/3347/21193" target = "_blank">MySQL join을 이용해서 글수정 구현 - 생활코딩</a>  
-<a href = "https://opentutorials.org/course/3347/21195" target = "_blank">Node.js의 DB 설정정보 정리정돈 - 생활코딩</a>  
-<a href = "https://opentutorials.org/course/3347/21196" target = "_blank">Node.js 코드의 정리정돈 (topic) - 생활코딩</a>  
-<a href = "https://opentutorials.org/course/3347/21202" target = "_blank">저자 목록 보기 구현 - 생활코딩</a>  
+<a href = "https://opentutorials.org/course/3347" target = "_blank">Node.js - MySQL - 생활코딩</a>  
   
 # 수정 이력
   
@@ -124,3 +131,4 @@ author.js
 2020-05-21 : 메인 페이지를 구성하는 명령을 topic.js 파일에서 관리하고 main.js에서는 해당 모듈을 불러와 사용합니다.  
 2020-05-25 : 글 생성, 글 변경, 글 삭제 기능을 topic.js 파일에서 관리하고 main.js에서는 해당 모듈을 불러와 사용합니다.  
 2020-05-26 : author 테이블에서 작가 정보를 읽어와 해당 정보를 표로 만들어 출력합니다.  
+2020-05-28 : author의 변경사항 반영 및 author 삭제 시 해당 author가 작성한 글도 모두 삭제합니다.  
