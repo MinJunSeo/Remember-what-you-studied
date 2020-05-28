@@ -2,6 +2,7 @@ var db = require('./db.js');
 var template = require('./template.js');
 var url = require('url');
 var qs = require('querystring');
+var sanitizeHtml = require('sanitize-html');
 
 exports.home = function(request, response)
 {
@@ -38,9 +39,9 @@ exports.page = function(request, response)
             var description = topic[0].description;
             var list = template.list(topics);
             var html = template.HTML(title, list,
-                `<h2>${title}</h2>
-                ${description}
-                <p>by ${topic[0].name}</p>`,
+                `<h2>${sanitizeHtml(title)}</h2>
+                ${sanitizeHtml(description)}
+                <p>by ${sanitizeHtml(topic[0].name)}</p>`,
                 `<a href = "/create">create</a>
                 <a href = "/update?id=${queryData.id}">update</a>
                 <form action = "delete_process" method = "POST">
@@ -130,14 +131,14 @@ exports.update = function(request, response)
                 if(error3) { throw error3; }
 
                 var list = template.list(topics);
-                var html = template.HTML(topic[0].title, list,
+                var html = template.HTML(sanitzieHtml(topic[0].title), list,
                     `<form action = "/update_process" method = "POST">
                         <input type = "hidden" name = "id" value = "${topic[0].id}"
                         <p>
-                            <input type = "text" name = "title" placeholder = "title" value = "${topic[0].title}">
+                            <input type = "text" name = "title" placeholder = "title" value = "${sanitzieHtml(topic[0].title)}">
                         </p>
                         <p>
-                            <textarea name = "description" placeholder = "description">${topic[0].description}</textarea>
+                            <textarea name = "description" placeholder = "description">${sanitzieHtml(topic[0].description)}</textarea>
                         </p>
                         <p>
                             ${template.authorSelect(authors, topic[0].author_id)}
